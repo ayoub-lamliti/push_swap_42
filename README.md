@@ -15,13 +15,14 @@ This repository features the Checker program (the bonus part of the project). Th
 To compile the checker program, run the following command in the root of the repository:
 
 ```bash
-make && make bonus
+make && make bonus && clear
 ```
 ### Execution
 
 ```bash
-./push_swap 4 67 3 87 23
-./push_swap 4 67 3 87 23 | wc -l
+ARG=$(python3 -c "import random; print(*random.sample(range(-1000, 1000), number ))"); ./push_swap $ARG | wc -l
+# or if u use fish 
+set ARG (python3 -c "import random; print(*random.sample(range(-1000, 1000), number ))"); ./push_swap $ARG | wc -l
 ```
 You can run the checker manually by passing a list of integers:
 
@@ -35,9 +36,9 @@ The program will wait for input. You can type instructions (like sa, pb, rra) fo
 The standard way to use the checker is to verify the output of your push_swap program using a pipe:
 
 ```bash
-ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG 
+ARG=$(python3 -c "import random; print(*random.sample(range(-1000, 1000), number))"); ./push_swap $ARG | ./checker $ARG 
 # or if u use fish 
-set ARG "4 67 3 87 23" ; ./push_swap $ARG | ./checker $ARG
+set ARG (python3 -c "import random; print(*random.sample(range(-1000, 1000), number ))"); ./push_swap $ARG | ./checker $ARG
 ```
 
 ## Output
